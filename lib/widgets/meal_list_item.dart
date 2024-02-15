@@ -19,20 +19,10 @@ class MealListItem extends StatelessWidget {
         meal.affordability.name.substring(1);
   }
 
-  void selectMeal(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MealDetailsScreen(meal: meal),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     void onSelectMeal() {
-      Navigator.push(
-        context,
+      Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => MealDetailsScreen(meal: meal),
         ),
