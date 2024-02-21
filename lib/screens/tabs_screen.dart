@@ -39,7 +39,6 @@ class _TabsScreenState extends State<TabsScreen> {
 
   void _toggleMealFavoriteStatus(Meal meal) {
     final isExisting = _favoriteMeals.contains(meal);
-
     if (isExisting) {
       setState(() {
         _favoriteMeals.remove(meal);
@@ -64,7 +63,9 @@ class _TabsScreenState extends State<TabsScreen> {
     if (identifier == 'filters') {
       final result = await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
-          builder: (context) => const FiltersScreen(),
+          builder: (context) => FiltersScreen(
+            currentFilters: _selectedFilters,
+          ),
         ),
       );
 
