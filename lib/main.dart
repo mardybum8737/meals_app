@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app/screens/tabs_screen.dart';
 
@@ -12,7 +13,12 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(
+    const ProviderScope(
+      // 앱 전역에서 상태를 관리하기 위해 ProviderScope로 감싸줌
+      child: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
